@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: costumers-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: costumers
+  template:
+    metadata:
+      labels:
+        app: costumers
+    spec:
+      containers:
+      - name: costumers
+        image: alfredoizjr/redcon1-costumers
+        # env:
+        #   - name: MONGO_URI
+        #     value: 'mongodb://products-mongo-srv:27017/auth'
+        #   - name: JWT_KEY
+        #     valueFrom:
+        #       secretKeyRef:
+        #           name: jwt-secret
+        #           key: JWT_KEY
+
+# service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: costumers-service
+spec:
+  selector:
+    app: costumers
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

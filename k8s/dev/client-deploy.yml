@@ -1,0 +1,40 @@
+# deploy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client
+        image: alfredoizjr/redcon1-client
+        # env:
+        #   - name: MONGO_URI
+        #     value: 'mongodb://products-mongo-srv:27017/client'
+        #   - name: JWT_KEY
+        #     valueFrom:
+        #       secretKeyRef:
+        #           name: jwt-secret
+        #           key: JWT_KEY
+
+# service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-service
+spec:
+  selector:
+    app: client
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
