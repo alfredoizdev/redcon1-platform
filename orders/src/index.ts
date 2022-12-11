@@ -7,7 +7,6 @@ const app = express();
 
 app.use(cors());
 app.use(json());
-
 const stanClient = nast.connect('myshop','abc',{
 	url: 'http://nats-service:4222'
 });

@@ -10,7 +10,11 @@ interface Props {
 
 const Home: FunctionComponent<Props> = ({ data }) => {
 	return (
-		<><h1>The data {data?.message}</h1></>
+		<>
+			<h1>App microservice</h1>
+			<p>This data coming from service orders {data?.message}</p>
+			<p>Also is amitted an message to using NAST Streaming Service</p>
+		</>
 	);
 };
 

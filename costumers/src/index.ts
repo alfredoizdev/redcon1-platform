@@ -39,8 +39,6 @@ const app = express();
 
 app.use(cors());
 app.use(json());
-
-
 app.get('/api/costumers',(req:Request, res:Response) => {
 	res.send({message: "COSTUMERS OK"})
 })
