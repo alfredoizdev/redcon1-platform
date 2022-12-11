@@ -23,9 +23,11 @@ stanClient.on('connect',() => {
 	});
 
 	app.get('/api/orders',(req:Request, res:Response) => {
+
 		res.json({message: "ORDERS OK"});
 		console.log("sending messages");
 		stanClient.publish('test:channel',data);
+		
 	})
 	
 	

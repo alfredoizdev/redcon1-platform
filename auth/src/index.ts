@@ -3,6 +3,7 @@ import { json } from 'body-parser';
 import cors from 'cors';
 
 const app = express();
+
 app.use(json());
 app.use(cors());
 
