@@ -15,4 +15,5 @@ jobs:
         with:
           token: ${{ secrets.GIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save myshop
-      - run: kubectl apply -f k8s && kubectl apply -f k8s/prod
+      - run: kubectl apply -f k8s
+      - run: kubectl apply -f k8s/prod
