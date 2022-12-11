@@ -16,6 +16,14 @@ spec:
       containers:
       - name: client
         image: alfredoizjr/redcon1-client
+        # env:
+        #   - name: MONGO_URI
+        #     value: 'mongodb://products-mongo-srv:27017/auth'
+        #   - name: JWT_KEY
+        #     valueFrom:
+        #       secretKeyRef:
+        #           name: jwt-secret
+        #           key: JWT_KEY
 # service
 ---
 apiVersion: v1
