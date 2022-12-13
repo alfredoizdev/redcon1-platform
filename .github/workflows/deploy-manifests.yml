@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'infra/k8s/**'
+      - 'infra/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,4 +16,4 @@ jobs:
           token: ${{ secrets.GIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save myshop
       - run: kubectl apply -f k8s/
-      - run: kubectl apply -f k8s/prod
+      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
